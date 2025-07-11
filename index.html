@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ragavi Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Ragavi Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="highlight">Ragavi H</span></h1>
+      <h3><span class="typing"></span></h3>
+      <p>I build responsive, engaging websites that look great and perform well.</p>
+      <p>I’m a Front-End Developer with a passion for turning ideas into impactful digital experiences. Whether it’s building elegant websites, designing user-centered interfaces, or bringing concepts to life through visual storytelling, I love creating work that speaks for itself.</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <div class="hero-img">
+      <img src="pic1.jpg" alt="Ragavi" />
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-left">
+        <img src="pic1.jpg" alt="About Image" />
+      </div>
+      <div class="about-right">
+        <p>I’m a passionate front-end developer focused on creating clean and interactive UIs. I love transforming ideas into websites that users love.</p>
+        <p>Always learning. Always growing. Always building.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Git & GitHub</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>Responsive e-commerce UI using React and TailwindCSS.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>Portfolio website with animation, gradient, and clean UI.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>Full-stack blog app using Node.js, Express, and MongoDB.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ragavi H. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Typing Effect
+    const typedText = ["Web Developer", "UI/UX Designer", "Freelancer"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+    function type() {
+      const typingElement = document.querySelector(".typing");
+      if (i < typedText.length) {
+        if (!isDeleting && j <= typedText[i].length) {
+          current = typedText[i].substring(0, j++);
+        } else if (isDeleting && j > 0) {
+          current = typedText[i].substring(0, j--);
+        } else {
+          isDeleting = !isDeleting;
+          if (!isDeleting) i++;
+        }
+        typingElement.textContent = current;
+        setTimeout(type, isDeleting ? 50 : 100);
+      } else {
+        i = 0;
+        type();
+      }
+    }
+    type();
+
+    // Scroll Reveal
+    ScrollReveal().reveal('.section', {
+      delay: 100,
+      distance: '40px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom',
+      reset: false
+    });
+  </script>
+</body>
+</html>
+
